@@ -1,0 +1,29 @@
+{
+  "name": "@hexlet/code",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Compares two configuration files and shows a difference.",
+  "bin": {
+    "gendiff": "bin/gendiff.js" 
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EweParo4ky/frontend-project-46.git"
+  },
+  "author": "EweParo4ky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EweParo4ky/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/EweParo4ky/frontend-project-46#readme",
+  "dependencies": {
+    "commander": "^9.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  }
+}
