@@ -1,17 +1,5 @@
 import _ from "lodash";
-import parse from './parsers.js';
-// const file1 = {
-//   "host": "hexlet.io",
-//   "timeout": 50,
-//   "proxy": "123.234.53.22",
-//   "follow": false
-// };
-
-// const file2 = {
-//   "timeout": 20,
-//   "verbose": true,
-//   "host": "hexlet.io"
-// };
+import parse from './parser.js';
 
 const genDiff = (file1, file2) => {
   const obj1= parse(file1);
@@ -39,8 +27,7 @@ const genDiff = (file1, file2) => {
 
   const sortedDifference = _.sortBy(objOfDifference, 'key');
   const result = sortedDifference.map((obj) => ` ${obj.diff} ${obj.key}: ${obj.value}`).join(',\n');
-
-  return result;
+  return `{\n${result}\n}`;
 }
 
 export default genDiff;
