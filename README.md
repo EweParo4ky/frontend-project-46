@@ -4,3 +4,5 @@
 <h2> Asciinema Demo </h2>
 <p><b>Gendiff with flat 'json' files</p>
 <a href="https://asciinema.org/a/JOKkuhHo1AMgJsf9dkQpHSpYh" target="_blank"><img src="https://asciinema.org/a/JOKkuhHo1AMgJsf9dkQpHSpYh.svg" /></a>
+<p><b>Gendiff with flat 'yaml' files</p>
+<a href="https://asciinema.org/a/sS80Gr7uuudgE9CkdukHHA6zO" target="_blank"><img src="https://asciinema.org/a/sS80Gr7uuudgE9CkdukHHA6zO.svg" /></a>
