@@ -12,7 +12,7 @@ const getParser = (fileStr) => {
   if (extension === '.json') {
     return jsonParse;
   }
-  if(extension === '.yaml') {
+  if(extension === '.yaml' || extension === '.yml') {
     return ymlParser;
   }
   else {
