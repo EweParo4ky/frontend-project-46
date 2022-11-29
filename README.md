@@ -1,8 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/EweParo4ky/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/EweParo4ky/frontend-project-46/actions)
 
-<h2> Asciinema Demo </h2>
-<p><b>Gendiff with flat 'json' files</p>
-<a href="https://asciinema.org/a/JOKkuhHo1AMgJsf9dkQpHSpYh" target="_blank"><img src="https://asciinema.org/a/JOKkuhHo1AMgJsf9dkQpHSpYh.svg" /></a>
-<p><b>Gendiff with flat 'yaml' files</p>
-<a href="https://asciinema.org/a/sS80Gr7uuudgE9CkdukHHA6zO" target="_blank"><img src="https://asciinema.org/a/sS80Gr7uuudgE9CkdukHHA6zO.svg" /></a>
+<ul><h3>Asciinema Demo</h3> 
+<li><b>Gendiff with flat 'json' files
+<a href="https://asciinema.org/a/JOKkuhHo1AMgJsf9dkQpHSpYh" target="_blank"><img src="https://asciinema.org/a/JOKkuhHo1AMgJsf9dkQpHSpYh.svg" /></a></li>
+<li><b>Gendiff with flat 'yaml' files
+<a href="https://asciinema.org/a/A7JIRSZuxsAcAyvpqlxpTJ98T" target="_blank"><img src="https://asciinema.org/a/A7JIRSZuxsAcAyvpqlxpTJ98T.svg" /></a></li>
+</ul2>
