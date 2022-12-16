@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import genDiff from "../src/index.js";
+import stylish from "../src/formatters/stylish.js";
 
 const program = new Command();
 
@@ -12,4 +13,4 @@ program
 
 program.parse();
 const [file1, file2] = program.args;
-console.log(genDiff(file1, file2));
+console.log(stylish(genDiff(file1, file2)));
