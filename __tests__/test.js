@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import genDiff from '../src/index.js';
-import stylish from '../src/formatters/stylish.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,10 +14,10 @@ console.log('function', genDiff(getFixturePath('file1.json'), getFixturePath('fi
 
 test('flat JSON', () => {
   const expectedResult = readFile('stylishTestSample.txt');
-  expect(stylish(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json')))).toEqual(expectedResult);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(expectedResult);
 });
 
 test('flat YAML', () => {
   const expectedResult = readFile('stylishTestSample.txt');
-  expect(stylish(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml')))).toEqual(expectedResult);
+  expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'))).toEqual(expectedResult);
 });
