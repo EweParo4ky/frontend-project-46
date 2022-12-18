@@ -2,22 +2,23 @@ import { test, expect } from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import genDiff from '../src/gendiff.js';
+import genDiff from '../src/index.js';
+import stylish from '../src/formatters/stylish.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-console.log('sample', readFile('flatTestSample.txt').trim(), typeof readFile('flatTestSample.txt'));
-console.log('function', genDiff(getFixturePath('flatFile1.json'), getFixturePath('flatFile2.json')), typeof genDiff(getFixturePath('flatFile1.json'), getFixturePath('flatFile2.json')));
+console.log('sample', readFile('stylishTestSample.txt').trim(), typeof readFile('stylishTestSample.txt'));
+console.log('function', genDiff(getFixturePath('file1.json'), getFixturePath('file2.json')), typeof genDiff(getFixturePath('file1.json'), getFixturePath('file2.json')));
 
 test('flat JSON', () => {
-  const expectedResult = readFile('flatTestSample.txt');
-  expect(genDiff(getFixturePath('flatFile1.json'), getFixturePath('flatFile2.json'))).toEqual(expectedResult);
+  const expectedResult = readFile('stylishTestSample.txt');
+  expect(stylish(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json')))).toEqual(expectedResult);
 });
 
 test('flat YAML', () => {
-  const expectedResult = readFile('flatTestSample.txt');
-  expect(genDiff(getFixturePath('flatFile1.yaml'), getFixturePath('flatFile2.yaml'))).toEqual(expectedResult);
+  const expectedResult = readFile('stylishTestSample.txt');
+  expect(stylish(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml')))).toEqual(expectedResult);
 });

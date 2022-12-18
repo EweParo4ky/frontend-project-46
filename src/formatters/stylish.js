@@ -1,7 +1,7 @@
 import _ from 'lodash';
 // import genDiff from '../index.js';
 
-const leftIndent = (depth, replacer = ' ') => replacer.repeat(depth * 4);
+const leftIndent = (depth, replacer = ' ') => replacer.repeat((depth * 4) + 2);
 const bracketIndent = (depth, replacer = ' ') => replacer.repeat(depth * 4);
 
 const stringify = (data, depth) => {
