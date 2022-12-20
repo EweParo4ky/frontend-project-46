@@ -13,7 +13,6 @@ const stringify = (data) => {
 const plain = (diff) => {
   const iter = (data, valuePath) => {
     const lines = data.map((node) => {
-      console.log(node);
       if (node.type === 'added') {
         return `Property '${valuePath}.${node.key}' was added with value: ${stringify(node.value)}`
       }
