@@ -35,7 +35,7 @@ const stylish = (diff) => {
           depth + 1
         )}`;
       }
-      if (node.type === 'changed') {
+      if (node.type === 'updated') {
         return [
           `${leftIndent(depth)}- ${node.key}: ${stringify(
             node.value1,

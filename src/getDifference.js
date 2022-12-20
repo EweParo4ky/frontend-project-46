@@ -24,7 +24,7 @@ const getDifference = (data1, data2) => {
     if (!_.isEqual(data1[key], data2[key])) {
       return {
         key,
-        type: 'changed',
+        type: 'updated',
         value1: data1[key],
         value2: data2[key],
       };
