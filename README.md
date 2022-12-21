@@ -1,7 +1,40 @@
-### Hexlet tests and linter status:
+# Hexlet-frontend project: Gendiff.
+
+## Hexlet tests and linter status:
 [![Actions Status](https://github.com/EweParo4ky/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/EweParo4ky/frontend-project-46/actions)
 
-<ul><h3>Asciinema Demo</h3>
+## Description:
+    A Gendiff is a program, that determines the difference between two data structures.
+### Utility features:
+      
+    * Support for different input formats: yaml, json
+     
+    * Report generation in the form of plain text, stylish and json
+    
+ 
+ ### Requirements:
+      
+     * Mac/linux
+     * Node v17.6 or higher
+       
+  ### Install
+    $ git clone git@github.com:EweParo4ky/frontend-project-46.git
+    $ cd frontend-project-46
+    $ make install
+    $ npm link
+
+### Usage:
+     gendiff [options] filepath1 filepath2
+     
+     Compares two configuration files and shows a difference.
+     
+     Options:
+     -V, --version               output the version number
+     -f, --formatType <type>     output format (default: "stylish")
+     -h, --help                  display help for command
+
+  
+### Asciinema Demo
 <li><b>Gendiff with 'json' formatter
 <a href="https://asciinema.org/a/NZIGke1Lj8VTDb66KJV0hKHVE" target="_blank"><img src="https://asciinema.org/a/NZIGke1Lj8VTDb66KJV0hKHVE.svg" /></a></li>
 <li><b>Gendiff with 'plain' formatter
