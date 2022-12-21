@@ -1,8 +1,8 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 const stringify = (data) => {
   if (_.isObject(data)) {
-    return '[complex value]'
+    return '[complex value]';
   }
   if (_.isString(data)) {
     return `'${data}'`;
@@ -14,7 +14,7 @@ const plain = (diff) => {
   const iter = (data, valuePath) => {
     const lines = data.map((node) => {
       if (node.type === 'added') {
-        return `Property '${valuePath}.${node.key}' was added with value: ${stringify(node.value)}`
+        return `Property '${valuePath}.${node.key}' was added with value: ${stringify(node.value)}`;
       }
       if (node.type === 'removed') {
         return `Property '${valuePath}.${node.key}' was removed`;
@@ -30,11 +30,11 @@ const plain = (diff) => {
       }
     });
     return lines
-    .filter((elem) => elem !== null)
-    .map((line) => line.replace('\'.', '\''))
-    .join('\n');
+      .filter((elem) => elem !== null)
+      .map((line) => line.replace('\'.', '\''))
+      .join('\n');
   };
   return iter(diff, '');
-}; 
+};
 
 export default plain;
