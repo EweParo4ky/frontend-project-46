@@ -17,7 +17,7 @@ const getParser = (fileStr) => {
 };
 
 const parse = (file) => {
-    const fileToObject = getParser(file);
+  const fileToObject = getParser(file);
   return fileToObject(file);
 };
 
