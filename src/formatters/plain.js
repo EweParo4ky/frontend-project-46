@@ -29,7 +29,6 @@ const plain = (diff) => {
         return iter(node.children, `${valuePath}.${node.key}`);
       }
     });
-    console.log(lines);
     return lines
     .filter((elem) => elem !== null)
     .map((line) => line.replace('\'.', '\''))
