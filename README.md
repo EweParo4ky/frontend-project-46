@@ -2,6 +2,7 @@
 
 ## Hexlet tests and linter status:
 [![Actions Status](https://github.com/EweParo4ky/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/EweParo4ky/frontend-project-46/actions)
+<a href="https://codeclimate.com/github/EweParo4ky/frontend-project-46/maintainability"><img src="https://api.codeclimate.com/v1/badges/3a503d563131a3c7643d/maintainability" /></a>
 
 ## Description:
     A Gendiff is a program, that determines the difference between two data structures.
