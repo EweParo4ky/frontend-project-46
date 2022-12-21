@@ -7,18 +7,18 @@ const ymlParser = (yml) => yaml.load(fs.readFileSync(path.resolve(yml)));
 
 const getParser = (fileStr) => {
   const extension = path.extname(fileStr);
-  if(extension === '.json') {
+  if (extension === '.json') {
     return jsonParse;
   }
-  if(extension === '.yaml' || extension === '.yml') {
+  if (extension === '.yaml' || extension === '.yml') {
     return ymlParser;
   }
-    throw new Error('This file type is not supported');
+  throw new Error('This file type is not supported');
 };
 
-  const parse = (file) => {
-    const fileToObject= getParser(file);
-    return fileToObject(file);
-  };
+const parse = (file) => {
+    const fileToObject = getParser(file);
+  return fileToObject(file);
+};
 
-  export default parse;
+export default parse;

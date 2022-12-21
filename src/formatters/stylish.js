@@ -50,9 +50,10 @@ const stylish = (diff) => {
       if (node.type === 'nested') {
         return `${leftIndent(depth)}  ${node.key}: ${iter(
           node.children,
-          depth + 1
+          depth + 1,
         )}`;
       }
+      return lines;
     });
     return `{\n${lines.join('\n')}\n${bracketIndent(depth)}}`;
   };
@@ -60,4 +61,3 @@ const stylish = (diff) => {
 };
 
 export default stylish;
-

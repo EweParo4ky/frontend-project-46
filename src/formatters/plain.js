@@ -28,6 +28,7 @@ const plain = (diff) => {
       if (node.type === 'nested') {
         return iter(node.children, `${valuePath}.${node.key}`);
       }
+      return lines;
     });
     return lines
       .filter((elem) => elem !== null)
