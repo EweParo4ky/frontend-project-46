@@ -1,5 +1,4 @@
 import _ from 'lodash';
-// import genDiff from '../index.js';
 
 const leftIndent = (depth, replacer = ' ') => replacer.repeat((depth * 4) + 2);
 const bracketIndent = (depth, replacer = ' ') => replacer.repeat(depth * 4);
@@ -29,7 +28,7 @@ const stylish = (diff) => {
           depth + 1,
         )}`;
       }
-      if (node.type === 'saved') {
+      if (node.type === 'unchanged') {
         return `${leftIndent(depth)}  ${node.key}: ${stringify(
           node.value,
           depth + 1,

@@ -1,4 +1,4 @@
-import { test, expect } from '@jest/globals';
+import { test, expect, describe } from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -9,32 +9,19 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('stylish JSON', () => {
-  const expectedResult = readFile('stylishTestSample.txt');
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(expectedResult);
-});
+const expectedResultStylish = readFile('stylishTestSample.txt');
+const expectedResultPlain = readFile('plainTestSample.txt');
+const expectedResultJson = readFile('jsonTestSample.txt');
 
-test('stylish YAML', () => {
-  const expectedResult = readFile('stylishTestSample.txt');
-  expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'))).toEqual(expectedResult);
-});
-
-test('plain JSON', () => {
-  const expectedResult = readFile('plainTestSample.txt');
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(expectedResult);
-});
-
-test('plain YAML', () => {
-  const expectedResult = readFile('plainTestSample.txt');
-  expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'), 'plain')).toEqual(expectedResult);
-});
-
-test('json JSON', () => {
-  const expectedResult = readFile('jsonTestSample.txt');
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(expectedResult);
-});
-
-test('json YAML', () => {
-  const expectedResult = readFile('jsonTestSample.txt');
-  expect(genDiff(getFixturePath('file1.yaml'), getFixturePath('file2.yaml'), 'json')).toEqual(expectedResult);
+describe('gendiff options test for diffrerent file format', () => {
+  test.each([
+    ['file1.json', 'file2.json', expectedResultStylish, 'stylish'],
+    ['file1.json', 'file2.json', expectedResultPlain, 'plain'],
+    ['file1.json', 'file2.json', expectedResultJson, 'json'],
+    ['file1.yaml', 'file2.yaml', expectedResultStylish, 'stylish'],
+    ['file1.yaml', 'file2.yaml', expectedResultPlain, 'plain'],
+    ['file1.yaml', 'file2.yaml', expectedResultJson, 'json'],
+  ])('Compares the operation of a "gendiff" function with different file (%s, %s) formats and the expected result', (file1, file2, expectedResult, formatType) => {
+    expect(genDiff(getFixturePath(file1), getFixturePath(file2), formatType)).toBe(expectedResult);
+  });
 });

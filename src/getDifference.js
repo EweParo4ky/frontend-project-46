@@ -4,8 +4,8 @@ const getDifference = (data1, data2) => {
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
   const keys = _.sortBy(_.union(keys1, keys2));
-  const difference = keys.map((key) => {
-    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+  const makeDifference = keys.map((key) => {
+    if (_.isPlainObject(data1[key]) && _.isPlainObject(data2[key])) {
       return {
         key,
         type: 'nested',
@@ -29,9 +29,9 @@ const getDifference = (data1, data2) => {
         value2: data2[key],
       };
     }
-    return { key, type: 'saved', value: data1[key] };
+    return { key, type: 'unchanged', value: data1[key] };
   });
-  return difference;
+  return makeDifference;
 };
 // console.log(getDifference(data1, data2));
 export default getDifference;

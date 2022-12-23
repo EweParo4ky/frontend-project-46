@@ -19,7 +19,7 @@ const plain = (diff) => {
       if (node.type === 'removed') {
         return `Property '${valuePath}.${node.key}' was removed`;
       }
-      if (node.type === 'saved') {
+      if (node.type === 'unchanged') {
         return null;
       }
       if (node.type === 'updated') {

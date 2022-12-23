@@ -2,7 +2,7 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-const formatter = (diff, formatType) => {
+const format = (diff, formatType) => {
   if (formatType === 'stylish') {
     return stylish(diff);
   }
@@ -15,4 +15,4 @@ const formatter = (diff, formatType) => {
   throw new Error(`'${formatType}' this format is not supported`);
 };
 
-export default formatter;
+export default format;
