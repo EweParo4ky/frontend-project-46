@@ -13,15 +13,15 @@ const expectedResultStylish = readFile('stylishTestSample.txt');
 const expectedResultPlain = readFile('plainTestSample.txt');
 const expectedResultJson = readFile('jsonTestSample.txt');
 
+const fileFormats = ['json', 'yaml'];
+
 describe('gendiff options test for diffrerent file format', () => {
-  test.each([
-    ['file1.json', 'file2.json', expectedResultStylish, 'stylish'],
-    ['file1.json', 'file2.json', expectedResultPlain, 'plain'],
-    ['file1.json', 'file2.json', expectedResultJson, 'json'],
-    ['file1.yaml', 'file2.yaml', expectedResultStylish, 'stylish'],
-    ['file1.yaml', 'file2.yaml', expectedResultPlain, 'plain'],
-    ['file1.yaml', 'file2.yaml', expectedResultJson, 'json'],
-  ])('Compares the operation of a "gendiff" function with different file (%s, %s) formats and the expected result', (file1, file2, expectedResult, formatType) => {
-    expect(genDiff(getFixturePath(file1), getFixturePath(file2), formatType)).toBe(expectedResult);
+  test.each(fileFormats)('%s', (extension) => {
+    const path1 = getFixturePath(`file1.${extension}`);
+    const path2 = getFixturePath(`file2.${extension}`);
+
+    expect(genDiff(path1, path2, 'stylish')).toEqual(expectedResultStylish);
+    expect(genDiff(path1, path2, 'plain')).toEqual(expectedResultPlain);
+    expect(genDiff(path1, path2, 'json')).toEqual(expectedResultJson);
   });
 });

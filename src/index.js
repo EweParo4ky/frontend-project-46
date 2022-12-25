@@ -5,7 +5,7 @@ import getDifference from './getDifference.js';
 import format from './formatters/index.js';
 
 const readFile = (filePath) => fs.readFileSync(path.resolve(filePath));
-const getExtension = (fileStr) => path.extname(fileStr);
+const getExtension = (fileStr) => path.extname(fileStr).slice(1);
 
 const genDiff = (file1, file2, formatType = 'stylish') => {
   const data1 = parse(readFile(file1), getExtension(file1));

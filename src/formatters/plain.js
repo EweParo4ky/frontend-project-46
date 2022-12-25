@@ -20,7 +20,7 @@ const plain = (diff) => {
         return `Property '${valuePath}.${node.key}' was removed`;
       }
       if (node.type === 'unchanged') {
-        return null;
+        return [];
       }
       if (node.type === 'updated') {
         return `Property '${valuePath}.${node.key}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
@@ -28,12 +28,12 @@ const plain = (diff) => {
       if (node.type === 'nested') {
         return iter(node.children, `${valuePath}.${node.key}`);
       }
-      return lines;
+      throw new Error(`Unknown node type: '${node.type}'!`);
     });
     return lines
-      .filter((elem) => elem !== null)
-      .map((line) => line.replace('\'.', '\''))
-      .join('\n');
+      .flatMap((line) => line)
+      .join('\n')
+      .replaceAll('\'.', '\'');
   };
   return iter(diff, '');
 };

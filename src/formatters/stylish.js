@@ -52,7 +52,7 @@ const stylish = (diff) => {
           depth + 1,
         )}`;
       }
-      return lines;
+      throw new Error(`Unknown node type: '${node.type}'!`);
     });
     return `{\n${lines.join('\n')}\n${bracketIndent(depth)}}`;
   };
