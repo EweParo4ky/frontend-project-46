@@ -33,5 +33,4 @@ const getDifference = (data1, data2) => {
   });
   return makeDifference;
 };
-// console.log(getDifference(data1, data2));
 export default getDifference;
